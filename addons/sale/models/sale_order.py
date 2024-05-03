@@ -37,7 +37,7 @@ class SaleOrder(models.Model):
     _sql_constraints = [
         ('date_order_conditional_required',
          "CHECK((state = 'sale' AND date_order IS NOT NULL) OR state != 'sale')",
-         "A confirmed sales order requires a confirmation date."),
+         "A confirmed sales order requires a confirmation date, homeboy!"),
     ]
 
     @property
@@ -81,9 +81,9 @@ class SaleOrder(models.Model):
              "If set, the delivery order will be scheduled based on "
              "this date rather than product lead times.")
     date_order = fields.Datetime(
-        string="Order Date",
+        string="Order Datum",
         required=True, copy=False,
-        help="Creation date of draft/sent orders,\nConfirmation date of confirmed orders.",
+        help="Creation date of draft/sent orders,\nConfirmation date of confirmed orders. \n Sam's Edit.",
         default=fields.Datetime.now)
     origin = fields.Char(
         string="Source Document",
